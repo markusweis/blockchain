@@ -9,5 +9,13 @@ In the project directory, you can run:
 Start Frontend 
 
 ### `npm run start-api`
-Start Backend (flask run is invoked)
+Start Backend (flask run is invoked). No need to activate venv.
+
+## Requirements
+node.js
+python3
+
+
+
+
 
