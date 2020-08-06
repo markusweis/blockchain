@@ -14,6 +14,9 @@ Start Backend (flask run is invoked). No need to activate venv.
 ## Requirements
 node.js
 python3
+pip install all requirements form #requirements.txt
+
+
 
 
 
