@@ -7,6 +7,11 @@
   pointer-events: none;
 }
 
+.box {
+  margin: 0px;
+  padding: 0px !important;
+
+}
 
 
 .App-header {
@@ -22,4 +27,12 @@
 
 .App-link {
   color: #61dafb;
+}
+
+
+.block {
+  display: inline-block;
+  width: 50px;
+  border: 1px #000000 solid ;
+  
 }

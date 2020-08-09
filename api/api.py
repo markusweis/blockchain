@@ -7,7 +7,7 @@ from uuid import uuid4
 import requests
 from flask import Flask, jsonify, request, render_template
 
-num_zeros = 4
+num_zeros = 5
 
 
 class Blockchain:
@@ -290,4 +290,3 @@ def consensus():
 def index():
     print("test")
     return "<h1 style='color: red;'>I'm a red H1 heading!</h1>"
-
