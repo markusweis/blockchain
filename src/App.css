@@ -31,7 +31,7 @@
 
 
 .block {
-  background-color: #0f3e966c ;
+  background-color: #cf00a2e1 ;
   margin: 20px;
   display: inline-block;
 }
@@ -58,4 +58,12 @@ Blockchain {
 
 .hash-input{
   margin: 5px;
+}
+
+.hash-card {
+  background-color: #77c897;
+}
+
+button {
+  margin: 10px;
 }

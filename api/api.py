@@ -7,7 +7,7 @@ from uuid import uuid4
 import requests
 from flask import Flask, jsonify, request, render_template, redirect
 
-num_zeros = 4
+num_zeros = 5
 
 
 class Blockchain:
@@ -297,8 +297,16 @@ def api_hash():
     return jsonify(response)
 
 
-@app.route('/reset', methods=["GET"])
+@app.route('/reset', methods=['GET'])
 def reset_chain():
     blockchain = Blockchain()
     print("-------------------------")
     return redirect("/")
+
+
+@app.route('/numberzeros', methods=['GET'])
+def get_number_zeros():
+    response = {
+        "numberzeros": num_zeros
+    }
+    return jsonify(num_zeros)
