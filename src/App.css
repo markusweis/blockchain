@@ -31,8 +31,31 @@
 
 
 .block {
+  background-color: #0f3e966c ;
+  margin: 20px;
   display: inline-block;
-  width: 200px;
-  border: 1px #000000 solid ;
-  
+}
+
+
+div.horizontal-scroll {
+  overflow: auto;
+  white-space: nowrap;
+}
+
+div.prev-hash {
+  width: 15em;
+}
+
+
+Blockchain {
+  padding-top: 5px;
+  width: 50em;
+}
+
+.hash-container{
+  margin: 10px;
+}
+
+.hash-input{
+  margin: 5px;
 }

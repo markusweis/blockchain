@@ -21,10 +21,13 @@ interface ITransaction {
 
 function Block(props: IBlockProp): JSX.Element {
     return (
-        <div className="block">
+        <div className="card card-block block">
             <p>Index: {props.index}</p>
-            <p>Previous Hash: {props.previous_hash.substring(0, 6)}</p>
+            <div className="horizontal-scroll prev-hash" >
+                <p>Previous Hash: {props.previous_hash.toString()}</p>
+            </div>
             <p>Timestamp: {new Date(props.timestamp * 1000).toLocaleString()}</p>
+            <p>Proof of work: {props.proof}</p>
         </div>
     );
 }
@@ -50,12 +53,8 @@ class Blockchain extends React.Component<{ mining: boolean }, { blocks: IBlockPr
 
 
         return (
-            <div className="BlockChain">
-                <Container>
-                    <Row>
+            <div className="BlockChain horizontal-scroll">
                         {elements}
-                    </Row>
-                </Container>
             </div>
         )
     }

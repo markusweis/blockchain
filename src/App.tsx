@@ -2,6 +2,11 @@ import React from 'react';
 import './App.css';
 import Blockchain from './Blockchain';
 import { loadJson } from './utils';
+import Spinner from 'react-bootstrap/Spinner';
+import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
+import Hash from './Hash'
 
 
 class App extends React.Component<{}, { mining: boolean, message: string, miningLabel: string }> {
@@ -16,13 +21,21 @@ class App extends React.Component<{}, { mining: boolean, message: string, mining
 
   render() {
     return (
-      <div>
+      <Container fluid>
+        <Row className="justify-content-end">
+          <Col>
+            <h1> My Blockchain</h1>
+          </Col>
+          <Col className="col-md-3">
+            <Hash></Hash>
+          </Col>
+        </Row>
         <Blockchain mining={this.state.mining} />
-        <button disabled={this.state.mining} className="btn btn-primary" onClick={this.handleMine} >Mine</button>
-        <p>MiningLabel? {this.state.miningLabel}</p>
-        <p>Mining? {this.state.mining.toString()}</p>
-        <p>{this.state.message}</p>
-      </div>
+        <button disabled={this.state.mining} className="btn btn-primary" onClick={this.handleMine} >
+          {this.state.mining? <Spinner as="span" animation="border" size="sm" /> : null}
+           Mine
+        </button>
+      </Container>
     );
   }
 

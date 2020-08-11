@@ -5,9 +5,9 @@ from urllib.parse import urlparse
 from uuid import uuid4
 
 import requests
-from flask import Flask, jsonify, request, render_template
+from flask import Flask, jsonify, request, render_template, redirect
 
-num_zeros = 5
+num_zeros = 4
 
 
 class Blockchain:
@@ -236,7 +236,7 @@ def full_chain():
 @app.route('/transactions/new', methods=['POST'])
 def new_transaction():
     values = request.get_json()
-
+    print("-------------", values)
     # Check that the required fields are in the POST'ed data
     required = ['sender', 'recipient', 'amount']
     if not all(k in values for k in required):
@@ -286,7 +286,19 @@ def consensus():
     return jsonify(response), 200
 
 
-@app.route('/index')
-def index():
-    print("test")
-    return "<h1 style='color: red;'>I'm a red H1 heading!</h1>"
+@app.route('/hash', methods=['POST'])
+def api_hash():
+    values = request.get_json()
+    string = values.get('string')
+    response = {
+        "string": string,
+        "hash": hashlib.sha256(string.encode()).hexdigest(),
+    }
+    return jsonify(response)
+
+
+@app.route('/reset', methods=["GET"])
+def reset_chain():
+    blockchain = Blockchain()
+    print("-------------------------")
+    return redirect("/")
